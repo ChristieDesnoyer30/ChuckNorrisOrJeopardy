@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP');
+
+body{
+    background: url('http://i51.tinypic.com/2af03lg.jpg');
+    background-size: cover;
+}
+#jepanswer{
+    padding: 15%;
+}
+p{
+    font-family: "Noto Serif JP";
+    font-size: 50px;
+    text-shadow: 2px 2px #000000;
+    color: white;
+}

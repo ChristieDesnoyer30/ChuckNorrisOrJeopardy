@@ -2,10 +2,20 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>JEOPARDY</title>
+    <link rel="stylesheet" href="jeopardy.css"/>
 </head>
 <body>
 
+<div class="container" align="center" id="jepanswer">
 <p th:text="${question}"/>
+<!--<p th:text="${answer}"/>-->
+</div>
+
+<form action="jeopardyquestion" method="get">
+    <input type="hidden" name="actualanswer" th:value="${answer}" />
+    <input type="text" name="answer" placeholder="Type your answer here">
+    <input type="submit" value="Submit answer" name="submitanswer"/>
+</form>
 </body>
 </html>

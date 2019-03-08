@@ -16,10 +16,19 @@ public class ChuckNorrisController {
     @Autowired
     ChuckNorrisService chuckNorrisService;
 
-    @ResponseBody
+
     @RequestMapping("/")
-    public ModelAndView displayCategories() {
-        ModelAndView mv = new ModelAndView("home");
+    public ModelAndView displayHomePage() {
+       ModelAndView mv = new ModelAndView("home");
+
+        return mv;
+
+    }
+
+    @ResponseBody
+    @RequestMapping("chuck")
+    public ModelAndView displayChuckNorrisPage(){
+        ModelAndView mv = new ModelAndView("chucknorris");
         ChuckNorrisFacts chuckNorrisFacts = chuckNorrisService.fetchFacts();
         mv.addObject("image", chuckNorrisFacts.getIcon_url());
         mv.addObject("fact", chuckNorrisFacts.getValue());
@@ -28,4 +37,5 @@ public class ChuckNorrisController {
         return mv;
 
     }
+
 }
