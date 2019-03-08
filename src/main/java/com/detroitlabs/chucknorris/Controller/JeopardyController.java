@@ -40,7 +40,8 @@ public class JeopardyController {
     public ModelAndView checkAnswer(@RequestParam("actualanswer") String actualAnswer, @RequestParam("answer") String userEnteredAnswer){
         ModelAndView mv = new ModelAndView("results");
 
-        if(actualAnswer.contains(userEnteredAnswer)){
+
+        if(userEnteredAnswer.toLowerCase().contains(actualAnswer.toLowerCase())){
             mv.addObject("results", "you are correct!");
         } else {
             mv.addObject("results", "INCORRECT");
