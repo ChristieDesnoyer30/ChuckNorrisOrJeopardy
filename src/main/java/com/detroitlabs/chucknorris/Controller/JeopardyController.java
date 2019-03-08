@@ -1,6 +1,10 @@
 package com.detroitlabs.chucknorris.Controller;
 
+import com.detroitlabs.chucknorris.Model.ChuckNorrisFacts;
+import com.detroitlabs.chucknorris.Model.Gif;
 import com.detroitlabs.chucknorris.Model.JeopardyListOfQuestions;
+import com.detroitlabs.chucknorris.Service.ChuckNorrisService;
+import com.detroitlabs.chucknorris.Service.GIFService;
 import com.detroitlabs.chucknorris.Service.JeopardyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +23,12 @@ public class JeopardyController {
     @Autowired
     JeopardyService jeopardyService;
 
+    @Autowired
+    ChuckNorrisService chuckNorrisService;
+
+    @Autowired
+    GIFService gifService;
+
 
 
     @ResponseBody
@@ -26,25 +36,22 @@ public class JeopardyController {
     public ModelAndView displayCQuestion() {
         ModelAndView mv = new ModelAndView("jeopardy");
         JeopardyListOfQuestions jeopardyListOfQuestions = jeopardyService.fetchAnswers();
-        Random random = new Random();
-        int questionIndex = random.nextInt(100);
-        int answerIndex = questionIndex;
-        mv.addObject("question", jeopardyListOfQuestions.get(questionIndex).getQuestion());
-        mv.addObject("answer", jeopardyListOfQuestions.get(answerIndex).getAnswer());
-
-
+        mv.addObject("question", jeopardyListOfQuestions.get(0).getQuestion());
+        mv.addObject("answer", jeopardyListOfQuestions.get(0).getAnswer());
+        mv.addObject("dollars", jeopardyListOfQuestions.get(0).getDollarAmount());
         return mv;
     }
 
     @RequestMapping("jeopardyquestion")
     public ModelAndView checkAnswer(@RequestParam("actualanswer") String actualAnswer, @RequestParam("answer") String userEnteredAnswer){
         ModelAndView mv = new ModelAndView("results");
-
+        ChuckNorrisFacts cNFact= chuckNorrisService.fetchFacts();
+        Gif answerIsCorrectGif = gifService.fetchGifs();
 
         if(userEnteredAnswer.toLowerCase().contains(actualAnswer.toLowerCase())){
-            mv.addObject("results", "you are correct!");
+            mv.addObject("results", answerIsCorrectGif.getGifData().getEmbed_url());
         } else {
-            mv.addObject("results", "INCORRECT");
+            mv.addObject("results", "You are incorrect, heres a Chuck Norris Fact. " + cNFact.getValue());
         }
         System.out.println(actualAnswer);
         System.out.println(userEnteredAnswer);
