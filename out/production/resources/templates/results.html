@@ -3,11 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Result</title>
+    <link rel="stylesheet" href="results.css"/>
 </head>
 <body>
 
-<h1 th:text="${results}"></h1>
 
+<div th:if="${results} == true" align="center">
+    <h1>Your are correct! Here's a GIF:</h1>
+
+    <img th:src="${correctAnswer}"></a>
+</div>
+
+<div th:if="${results} == false" align="center">
+    <h1>You are incorrect. Here's a Chuck Norris 'fact'.</h1>
+    <iframe src="https://giphy.com/embed/4Z3DdOZRTcXPa" width="480" height="367" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/chuck-approves-norris-4Z3DdOZRTcXPa">via GIPHY</a></p>
+    <h1 th:text="${incorrectAnswer}"/>
+</div>
 
 </body>
 </html>

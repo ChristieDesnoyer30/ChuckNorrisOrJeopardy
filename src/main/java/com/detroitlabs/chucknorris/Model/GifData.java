@@ -6,13 +6,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GifData {
 
-    private String embed_url;
+    private String image_url;
 
-    public String getEmbed_url() {
-        return embed_url;
+    public String getImage_url() {
+        return image_url;
     }
 
-    public void setEmbed_url(String embed_url) {
-        this.embed_url = embed_url;
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
     }
 }

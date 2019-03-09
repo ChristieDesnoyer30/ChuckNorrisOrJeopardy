@@ -36,6 +36,7 @@ public class JeopardyController {
     public ModelAndView displayCQuestion() {
         ModelAndView mv = new ModelAndView("jeopardy");
         JeopardyListOfQuestions jeopardyListOfQuestions = jeopardyService.fetchAnswers();
+        mv.addObject("category", jeopardyListOfQuestions.get(0).getCategory().getTitle());
         mv.addObject("question", jeopardyListOfQuestions.get(0).getQuestion());
         mv.addObject("answer", jeopardyListOfQuestions.get(0).getAnswer());
         mv.addObject("dollars", jeopardyListOfQuestions.get(0).getDollarAmount());
@@ -49,10 +50,14 @@ public class JeopardyController {
         Gif answerIsCorrectGif = gifService.fetchGifs();
 
         if(userEnteredAnswer.toLowerCase().contains(actualAnswer.toLowerCase())){
-            mv.addObject("results", answerIsCorrectGif.getGifData().getEmbed_url());
+            mv.addObject("results", true);
+            mv.addObject("correctAnswer", answerIsCorrectGif.getGifData().getImage_url());
+            System.out.println(answerIsCorrectGif.getGifData().getImage_url());
         } else {
-            mv.addObject("results", "You are incorrect, heres a Chuck Norris Fact. " + cNFact.getValue());
+            mv.addObject("results", false);
+            mv.addObject("incorrectAnswer",  cNFact.getValue());
         }
+
         System.out.println(actualAnswer);
         System.out.println(userEnteredAnswer);
 

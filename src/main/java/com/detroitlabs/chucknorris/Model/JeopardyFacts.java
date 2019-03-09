@@ -4,6 +4,8 @@ package com.detroitlabs.chucknorris.Model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Locale;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class JeopardyFacts {
 
@@ -11,8 +13,20 @@ public class JeopardyFacts {
 
     private String answer;
 
+    private Category category;
 
     private int dollarAmount;
+
+
+    @JsonProperty("category")
+    public Category getCategory() {
+        return category;
+    }
+
+    @JsonProperty("category")
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     @JsonProperty("value")
     public int getDollarAmount() {

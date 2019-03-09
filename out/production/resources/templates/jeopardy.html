@@ -8,7 +8,8 @@
 <body>
 
 <div class="container" align="center" id="jepanswer">
-    <h1 th:text="${dollars}"/>
+    <h1 th:text="'$' + ${dollars}"/>
+    <h1 th:text="${category}"/>
 <p th:text="${question}"/>
 <!--<p th:text="${answer}"/>-->
 </div>
