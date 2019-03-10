@@ -13,11 +13,12 @@
 <p th:text="${question}"/>
 <!--<p th:text="${answer}"/>-->
 </div>
-
+<div class="container" align="center" >
 <form action="jeopardyquestion" method="get">
-    <input type="hidden" name="actualanswer" th:value="${answer}" />
+    <input type="hidden" th:name="actualanswer" th:value="${answer}" />
     <input type="text" name="answer" placeholder="Type your answer here">
     <input type="submit" value="Submit answer" name="submitanswer"/>
 </form>
+</div>
 </body>
 </html>

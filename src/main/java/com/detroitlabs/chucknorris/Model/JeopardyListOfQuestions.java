@@ -6,7 +6,8 @@ import java.util.ArrayList;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class JeopardyListOfQuestions extends ArrayList<JeopardyFacts> {
+public class JeopardyListOfQuestions  extends ArrayList<JeopardyFacts> {
+
 
 
 }

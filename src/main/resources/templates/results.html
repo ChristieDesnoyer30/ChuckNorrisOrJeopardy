@@ -10,14 +10,13 @@
 
 <div th:if="${results} == true" align="center">
     <h1>Your are correct! Here's a GIF:</h1>
-
-    <img th:src="${correctAnswer}"></a>
+    <img th:src="${correctAnswer}"/>
 </div>
 
 <div th:if="${results} == false" align="center">
-    <h1>You are incorrect. Here's a Chuck Norris 'fact'.</h1>
-    <iframe src="https://giphy.com/embed/4Z3DdOZRTcXPa" width="480" height="367" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/chuck-approves-norris-4Z3DdOZRTcXPa">via GIPHY</a></p>
-    <h1 th:text="${incorrectAnswer}"/>
+    <h1>You are incorrect...</h1>
+    <img th:src="${incorrectAnswer}" />
+
 </div>
 
 </body>

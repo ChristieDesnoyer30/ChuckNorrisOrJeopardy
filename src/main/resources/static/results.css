@@ -1,12 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP');
 p{
-    font-family: "Noto Serif JP";
-    font-size: 50px;
-    text-shadow: 2px 2px #000000;
-    color: cornflowerblue;
-}
+     font-family: "Noto Serif JP";
+     font-size: 50px;
+     text-shadow: 2px 2px #000000;
+     color: cornflowerblue;
+ }
 h1{
     font-family: "Noto Serif JP";
     font-size: 70px;
     text-shadow: 2px 2px #000000;
     color: cornflowerblue;
+}
+
+body{
+    background: url("/images/scribble_light.png");
+    background-size: cover;
 }

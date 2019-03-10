@@ -1,9 +1,7 @@
 package com.detroitlabs.chucknorris.Controller;
 
-import com.detroitlabs.chucknorris.Model.ChuckNorrisFacts;
 import com.detroitlabs.chucknorris.Model.Gif;
 import com.detroitlabs.chucknorris.Model.JeopardyListOfQuestions;
-import com.detroitlabs.chucknorris.Service.ChuckNorrisService;
 import com.detroitlabs.chucknorris.Service.GIFService;
 import com.detroitlabs.chucknorris.Service.JeopardyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import javax.jws.WebParam;
-import java.util.Random;
 
 
 @Controller
@@ -24,12 +18,16 @@ public class JeopardyController {
     JeopardyService jeopardyService;
 
     @Autowired
-    ChuckNorrisService chuckNorrisService;
-
-    @Autowired
     GIFService gifService;
 
 
+    @RequestMapping("/")
+    public ModelAndView displayHomePage() {
+        ModelAndView mv = new ModelAndView("home");
+
+        return mv;
+
+    }
 
     @ResponseBody
     @RequestMapping("jeopardy")
@@ -46,16 +44,19 @@ public class JeopardyController {
     @RequestMapping("jeopardyquestion")
     public ModelAndView checkAnswer(@RequestParam("actualanswer") String actualAnswer, @RequestParam("answer") String userEnteredAnswer){
         ModelAndView mv = new ModelAndView("results");
-        ChuckNorrisFacts cNFact= chuckNorrisService.fetchFacts();
-        Gif answerIsCorrectGif = gifService.fetchGifs();
+
 
         if(userEnteredAnswer.toLowerCase().contains(actualAnswer.toLowerCase())){
+            Gif answerIsCorrectGif = gifService.fetchGifs(userEnteredAnswer);
+
             mv.addObject("results", true);
             mv.addObject("correctAnswer", answerIsCorrectGif.getGifData().getImage_url());
-            System.out.println(answerIsCorrectGif.getGifData().getImage_url());
-        } else {
+
+
+        } else{
+            Gif answerIsNotCorrectGif = gifService.fetchGifs("wrong");
             mv.addObject("results", false);
-            mv.addObject("incorrectAnswer",  cNFact.getValue());
+            mv.addObject("incorrectAnswer", answerIsNotCorrectGif.getGifData().getImage_url());
         }
 
         System.out.println(actualAnswer);

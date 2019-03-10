@@ -11,11 +11,11 @@ public class GIFService {
 
 
 
-        public Gif fetchGifs(){
+        public Gif fetchGifs(String answerResult){
 
             RestTemplate restTemplate = new RestTemplate();
 
-            return restTemplate.getForObject("https://api.giphy.com/v1/gifs/random?api_key=qMWpPY3uSRMO3cjUQ3ZtzgtlLsAvJl9U&tag=&rating=G"
+            return restTemplate.getForObject("https://api.giphy.com/v1/gifs/random?api_key=qMWpPY3uSRMO3cjUQ3ZtzgtlLsAvJl9U&tag=" + answerResult + "&rating=G"
                     , Gif.class);
         }
 

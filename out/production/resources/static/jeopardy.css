@@ -7,6 +7,7 @@ body{
 #jepanswer{
     padding: 15%;
 }
+
 p{
     font-family: "Noto Serif JP";
     font-size: 50px;
@@ -19,3 +20,20 @@ h1{
     text-shadow: 2px 2px #000000;
     color: white;
 }
+
+input[type=submit] {padding:5px 15px; background:#ccc; border:0 none;
+    font-family: "Noto Serif JP";
+    font-size: 20px;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; }
+
+
+input[type=text] {padding:5px 15px; background:#ccc; border:0 none;
+    font-family: "Noto Serif JP";
+    font-size: 20px;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
