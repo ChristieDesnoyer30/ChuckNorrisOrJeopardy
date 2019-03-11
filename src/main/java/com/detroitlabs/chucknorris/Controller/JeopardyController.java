@@ -47,7 +47,7 @@ public class JeopardyController {
 
 
         if(userEnteredAnswer.toLowerCase().contains(actualAnswer.toLowerCase())){
-            Gif answerIsCorrectGif = gifService.fetchGifs(userEnteredAnswer);
+            Gif answerIsCorrectGif = gifService.fetchGifs(actualAnswer);
 
             mv.addObject("results", true);
             mv.addObject("correctAnswer", answerIsCorrectGif.getGifData().getImage_url());
