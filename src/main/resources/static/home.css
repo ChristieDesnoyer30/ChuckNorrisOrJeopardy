@@ -1,15 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP');
 
 body{
     background: url('https://s3-media4.fl.yelpcdn.com/bphoto/uX6zHvvYHa8zZvwI38wBDw/o.jpg');
     background-size: cover;
 }
 
-a{
-    padding-bottom: 15%;
-}
-
 .playGame{
-    font: bold 20px Arial;
+    font: bold 20px "Noto Serif JP";
     text-decoration: none;
     background-color: #EEEEEE;
     color: #333333;
@@ -22,5 +19,5 @@ a{
 }
 
 .jeoparybutton{
-   padding-bottom: 20%;
-}
+     padding-top: 45%;
+ }

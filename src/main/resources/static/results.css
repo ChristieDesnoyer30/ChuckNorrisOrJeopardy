@@ -16,3 +16,21 @@ body{
     background: url("/images/scribble_light.png");
     background-size: cover;
 }
+
+
+.nextquestion{
+    font: bold 20px "Noto Serif JP";
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #333333;
+    padding: 2px 6px 2px 6px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+
+}
+
+.nextquestiondiv{
+    padding-top: 45%;
+}

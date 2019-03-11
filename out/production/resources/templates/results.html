@@ -9,7 +9,7 @@
 
 
 <div th:if="${results} == true" align="center">
-    <h1>Your are correct! Here's a GIF:</h1>
+    <h1>You are correct!</h1>
     <img th:src="${correctAnswer}"/>
 </div>
 
@@ -19,5 +19,8 @@
 
 </div>
 
+<div class="container nextquestiondiv" align="center">
+    <a href="/jeopardy" class="nextquestion">Next question, Trebek.</a>
+</div>
 </body>
 </html>
